@@ -374,7 +374,7 @@ reporting of the |ErrorT| transformer is not used.  We have to modify
 our definition in order to give useful error messages:
 
 > eval2b                   ::  Env -> Exp -> Eval2 Value
-> eval2b env (Lit i)       =   return $ IntVal i
+> eval2b _   (Lit i)       =   return $ IntVal i
 > eval2b env (Var n)       =   maybe (fail ("undefined variable: " ++ n)) return $ Map.lookup n env
 > eval2b env (Plus e1 e2)  =   do  e1'  <- eval2b env e1
 >                                  e2'  <- eval2b env e2
